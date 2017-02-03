@@ -76,17 +76,12 @@ public class MainActivity extends AppCompatActivity {
 
         imageView.startAnimation(animation);
 
-        //Toast.makeText(MainActivity.this, ""+number, Toast.LENGTH_SHORT).show();
-        //la ligne au dessus m'a permis d'afficher le numéro de la carte afin de savoir laquelle
-        // doit être identifiée par le code comme la bonne carte
-        //J'ai donc pu le relever et mettre la condition suivante
-        // si c'est cette carte (via le numéro de la carte) qui passe proche de mon portable,
-        //sinon un message s'affiche pour dire à l'utilisateur que ce n'est pas la bonne carte
-        if(number == 744658484){
-            startActivity(new Intent(MediaStore.ACTION_IMAGE_CAPTURE));
+        if(number == 69673562 || number == 72885082){
+            Toast.makeText(MainActivity.this, "Identification acceptée", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(this, NextActivity.class);
+            startActivity(i);
         }else {
-            System.out.println("PPPPPPPPPOOOOOOOOOOTTTEEEE " + number);
-            Toast.makeText(MainActivity.this, "Votre carte ne permet pas de lancer l'appareil photo", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "Votre carte ne permet pas de vous identifier", Toast.LENGTH_SHORT).show();
         }
     }
 
